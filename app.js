@@ -1,7 +1,4 @@
 
-var stars = 500
-var speed = undefined
-
 function getRandom(min,max) {
     return Math.floor(Math.random()*(max-min+1)+min);
 }
@@ -41,13 +38,13 @@ function generateStars(){
     var star = new Path.Circle({
         center: view.center,
         radius: 10,
-        fillColor: "black",
+        fillColor: 'white',
         strokeColor: 'white'
     });
 
     var starsSymbol = new Symbol(star)
 
-    // Generate stars
+    // Generate stars by symbols
     for (var i = 0; i < stars; i++) {
         var center = Point.random() * view.size;
         var placedStar = starsSymbol.place(center);
@@ -135,12 +132,15 @@ function onMouseDown(event) {
   }  
 }
 
+var stars = 500
+var speed = undefined
 var destination = undefined
+var offset = 0
+
 var moving_stars = generateStars()
 var sun = generateSun()
 var path = generateEarthsOrbit()
 var earth = generateEarth()
-var offset = 0
 
 
 
